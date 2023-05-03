@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import SingleProduct from "../components/single";
 
 const Products = () => {
   const para = useRef(null);
