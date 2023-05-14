@@ -26,6 +26,17 @@ function UncontrolledExample() {
         />
       </Carousel.Item>
     </Carousel>
+    <Container>
+    <Row>
+      <Col>
+        <img/>
+        <h4></h4>
+      <p></p>
+      <p></p>
+      </Col>
+    </Row>
+  </Container>
+  
   );
 }
 

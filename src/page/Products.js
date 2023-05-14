@@ -14,14 +14,12 @@ const Products = () => {
   ];
 
   return (
-    <div class="row text-center">
-      <ul class="list-group w-50 p-3">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-        <li class="list-group-item">A fourth item</li>
-        <li class="list-group-item">And a fifth one</li>
-      </ul>
+    <div class="container">
+      <div class="row">
+        <div class="col">Column</div>
+        <div class="col">Column</div>
+        <div class="col">Column</div>
+      </div>
     </div>
   );
 };

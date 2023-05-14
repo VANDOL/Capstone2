@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Products from "../page/Products";
 import Login from "./Login";
 
 const NavBar = () => {
   return (
     <nav class="navbar navbar-expand-lg bg-dark">
-      <div class="container-fluid w-75">
+      <div class="container-fluid w-75 4em">
         <a class="navbar-brand text-white" href="/">
           Navbar
         </a>
@@ -32,29 +31,24 @@ const NavBar = () => {
                 aria-current="page"
                 href="/"
               >
-                Home
+                홈
               </a>
             </li>
             <li class="nav-item ">
               <a class="nav-link text-white" href="../product">
-                Product
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="/">
-                Pricing
+                제품
               </a>
             </li>
           </ul>
           <ul class="navbar-nav">
             <li>
-              <a
-                class="nav-link text-white"
-                href="#"
-                data-bs-toggle="modal"
-                data-target="#login"
-              >
-                Login
+              <a class="nav-link text-white" href="/">
+                마이페이지
+              </a>
+            </li>
+            <li>
+              <a class="nav-link text-white" href="/login">
+                로그인
               </a>
             </li>
           </ul>
