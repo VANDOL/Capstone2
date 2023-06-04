@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import Login from "./Login";
 
 const NavBar = () => {
   return (
@@ -31,19 +29,19 @@ const NavBar = () => {
                 aria-current="page"
                 href="/"
               >
-                홈
+                사용자{" "}
               </a>
             </li>
             <li class="nav-item ">
               <a class="nav-link text-white" href="../product">
-                제품
+                물품
               </a>
             </li>
           </ul>
           <ul class="navbar-nav">
             <li>
               <a class="nav-link text-white" href="/">
-                마이페이지
+                입찰
               </a>
             </li>
             <li>
