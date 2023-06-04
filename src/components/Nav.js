@@ -1,56 +1,32 @@
 import React, { Component } from "react";
+import "./Nav.css";
 
 const NavBar = () => {
   return (
-    <nav class="navbar navbar-expand-lg bg-dark">
-      <div class="container-fluid w-75 4em">
-        <a class="navbar-brand text-white" href="/">
-          Navbar
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div
-          class="collapse navbar-collapse justify-content-between"
-          id="navbarNav"
-        >
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a
-                class="nav-link active text-white"
-                aria-current="page"
-                href="/"
-              >
-                사용자{" "}
-              </a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link text-white" href="../product">
-                물품
-              </a>
-            </li>
-          </ul>
-          <ul class="navbar-nav">
-            <li>
-              <a class="nav-link text-white" href="/">
-                입찰
-              </a>
-            </li>
-            <li>
-              <a class="nav-link text-white" href="/login">
-                로그인
-              </a>
-            </li>
-          </ul>
-        </div>
+    <nav class="main_nav">
+      <div class="conts">
+        <ul class="navba">
+          <li class="item">
+            <a class="link" href="../product">
+              <h4>경매내역</h4>
+            </a>
+          </li>
+          <li class="item">
+            <a class="link" href="../product">
+              <h4> 문의내역</h4>
+            </a>
+          </li>
+          <li class="item ">
+            <a class="link " href="../product">
+              <h4>회원관리</h4>
+            </a>
+          </li>
+          <li class="logout ">
+            <a class="link" href="/login">
+              <h4> 로그아웃</h4>
+            </a>
+          </li>
+        </ul>
       </div>
     </nav>
   );

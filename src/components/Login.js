@@ -1,70 +1,75 @@
-import React, { useState, useEffect } from "react";
-import "./Login.css";
-import { useHistory } from "react-router-dom";
-import firebase from "firebase/compat/app";
+import React, { useState } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
+import "./Login.css";
 
 function Login() {
-  const [inputId, setInputId] = useState("");
-  const [inputPwd, setInputPwd] = useState("");
-  const auth = getAuth();
-  const history = useHistory();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const loginBtn = async () => {
-    await signInWithEmailAndPassword(auth, inputId, inputPwd)
-      .then((userCredential) => {
-        console.log(userCredential);
-        console.log("로그인이 완료되었습니다.");
-        history.push("/main");
+  const handleLogin = () => {
+    if (!email || !password) {
+      window.alert("로그인 오류", "아이디와 비밀번호를 모두 입력해주세요.");
+      return;
+    }
+
+    const auth = getAuth();
+    const firestore = getFirestore();
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        navigate("/main");
       })
-      .catch((err) => {
-        let errCode = err.code;
-        let errMsg = err.message;
-        console.log(errCode);
-        console.log(errMsg);
+      .catch((error) => {
+        window.alert(
+          "로그인 오류",
+          "아이디 또는 비밀번호가 일치하지 않습니다."
+        );
       });
   };
 
   return (
     <div className="text-center m-auto my-auto form-signin">
-      <form>
-        <h1 class="h3 mb-3 fw-normal">로그인</h1>
+      <h1 class="h3 mb-3 fw-normal">로그인</h1>
 
-        <div class="form-floating pb-1">
-          <input
-            type="email"
-            class="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
-            onChange={(e) => setInputId(e.target.value)}
-          />
-          <label for="floatingInput">ID</label>
-        </div>
+      <div class="form-floating pb-1">
+        <input
+          type="email"
+          class="form-control"
+          value={email}
+          placeholder="name@example.com"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <label for="floatingInput">ID</label>
+      </div>
 
-        <div class="form-floating pb-2">
-          <input
-            type="password"
-            class="form-control"
-            id="floatingPassword"
-            placeholder="Password"
-            onChange={(e) => setInputPwd(e.target.value)}
-          />
-          <label for="floatingPassword">PW</label>
-        </div>
-        <div class="checkbox mb-2">
-          <label>
-            <input type="checkbox" value="remember-me" /> Remember me
-          </label>
-        </div>
-        <button
-          class="w-50 btn btn-lg btn-primary"
-          onClick={loginBtn}
-          type="submit"
-        >
-          Sign in
-        </button>
-        <p class="mt-2 mb-1 text-muted">&copy; 정규형</p>
-      </form>
+      <div class="form-floating pb-2">
+        <input
+          type="password"
+          class="form-control"
+          value={password}
+          placeholder="Password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <label for="floatingPassword">PW</label>
+      </div>
+      <div class="checkbox mb-2">
+        <label>
+          <input type="checkbox" value="remember-me" /> Remember me
+        </label>
+      </div>
+      <button class="w-50 btn btn-lg btn-primary" onClick={handleLogin}>
+        Sign in
+      </button>
+      <p class="mt-2 mb-1 text-muted">&copy; 정규형</p>
     </div>
   );
 }

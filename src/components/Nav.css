@@ -1,0 +1,42 @@
+.main_nav {
+  background-color: #000;
+  height: 55px;
+  padding: 10px;
+}
+
+.navba {
+  width: 1000px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style-type: none;
+  margin: auto;
+}
+.item {
+  width: 300px;
+}
+
+.logout {
+  width: 300px;
+  margin-left: 300px;
+}
+
+.link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #ddd;
+}
+
+.conts {
+  width: 2000px;
+  margin: auto;
+}
+
+.li {
+  float: left;
+  line-height: 80px;
+  padding: 0 30px;
+}
