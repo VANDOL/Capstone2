@@ -1,11 +1,11 @@
 .main_nav {
-  background-color: #000;
+  background-color: #565656;
   height: 55px;
   padding: 10px;
 }
 
 .navba {
-  width: 1000px;
+  width: 1300px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -14,11 +14,13 @@
 }
 .item {
   width: 300px;
+  text-align: center;
 }
 
 .logout {
   width: 300px;
   margin-left: 300px;
+  text-align-last: right;
 }
 
 .link {
@@ -31,7 +33,7 @@
 }
 
 .conts {
-  width: 2000px;
+  width: 80%;
   margin: auto;
 }
 

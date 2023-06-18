@@ -1,0 +1,92 @@
+/* 위에 종류 띄우는거 */
+.container {
+  max-width: 2000px;
+  min-width: 1500px;
+}
+
+.text-xl {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.table-list {
+  display: table;
+  width: auto;
+  margin: 0 auto;
+  color: #2d3748;
+}
+.gray {
+  height: 50px;
+  background-color: #2d3748;
+}
+
+.user-name {
+  width: 100px;
+}
+.user-nick {
+  width: 100px;
+}
+.user-id {
+  width: 450px;
+}
+
+.user-birth {
+  width: 250px;
+}
+
+.user-address {
+  width: 400px;
+}
+
+.user-price {
+  width: 200px;
+}
+.user-time {
+  width: 200px;
+}
+.user-order {
+  width: 200px;
+}
+.user-check {
+  width: 120px;
+}
+
+.user-delete {
+  width: 70px;
+}
+
+.check {
+  height: 20px;
+}
+
+/* 안에 넣는 리스트 css */
+
+.list-border {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  border: 2px solid #000000;
+}
+
+.list {
+  height: 40px;
+  border: 2px solid #000000;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-purple {
+  color: #a855f7;
+}
+
+.page-center {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}

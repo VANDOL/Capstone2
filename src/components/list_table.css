@@ -1,0 +1,100 @@
+/* 위에 종류 띄우는거 */
+
+.container {
+  max-width: 2000px;
+  min-width: 1500px;
+}
+
+.text-xl {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.table-list {
+  display: table;
+  width: auto;
+  margin: 0 auto;
+  color: #2d3748;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gray {
+  background-color: #2d3748;
+}
+
+.table-top {
+  color: #e2e8f0;
+  height: 50px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  border: 2px solid #000000;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.list_id {
+  width: 80px;
+}
+
+.list_email {
+  width: 250px;
+}
+
+.list_name {
+  width: 200px;
+}
+
+.list_table-category {
+  width: 150px;
+}
+
+.list_date-time {
+  width: 200px;
+}
+
+.list_price {
+  width: 150px;
+}
+.list_time {
+  width: 100px;
+}
+
+.list_delete {
+  width: 70px;
+}
+
+/* 안에 넣는 리스트 css */
+
+.list-border {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  border: 2px solid #000000;
+}
+
+.list {
+  height: 40px;
+  border: 2px solid #000000;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-purple {
+  color: #a855f7;
+}
+.page-center {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}

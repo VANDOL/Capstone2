@@ -1,44 +1,71 @@
-import React from "react";
-import Navigation from "./components/Nav";
+import React, { useState, useEffect } from "react";
+import NoNav from "./components/noNav";
+import Nav from "./components/Nav";
 import { Route, Routes } from "react-router-dom";
-import Main from "./page/Main";
+import White from "./components/white";
 import Login from "./components/Login";
-//import { auth } from "./firebase";
+import List_table from "./components/list_table";
+import Qna_table from "./components/qna_table";
+import User_table from "./components/user_table";
+import End_table from "./components/list_end";
 
 import "firebase/auth";
-import { initializeApp } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+import db from "./firebase";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDO7h9trUmWjT5-yZ6phkKBXWy7LHldgJs",
-  authDomain: "test-7cf9e.firebaseapp.com",
-  databaseURL: "https://test-7cf9e-default-rtdb.firebaseio.com",
-  projectId: "test-7cf9e",
-  storageBucket: "test-7cf9e.appspot.com",
-  messagingSenderId: "427668302554",
-  appId: "1:427668302554:web:6044ce31ddcea12226d3e3",
-  measurementId: "G-K29BP5YM2T",
-};
+const auth = getAuth(db);
 
-const app = initializeApp(firebaseConfig);
-const firestore = getFirestore(app);
-const auth = getAuth(app);
+const App = () => {
+  const [isLoggedIn, setisLogged] = useState(null);
 
-function App() {
-  console.log(auth);
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setisLogged(true);
+      } else {
+        setisLogged(false);
+      }
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  console.log(isLoggedIn);
+
   return (
     <div>
-      <Navigation />
+      {isLoggedIn === null ? <White /> : isLoggedIn ? <Nav /> : <NoNav />}
       <main>
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/main" element={<Main />} />
+          <Route path="/" element={<White />} />
+          {isLoggedIn ? <Route path="/main" element={<White />} /> : <Route />}
+          {isLoggedIn ? (
+            <Route path="/user" element={<User_table />} />
+          ) : (
+            <Route />
+          )}
+          {isLoggedIn ? (
+            <Route path="/end_list" element={<End_table />} />
+          ) : (
+            <Route />
+          )}
+          {isLoggedIn ? (
+            <Route path="/mun" element={<Qna_table />} />
+          ) : (
+            <Route />
+          )}
+
+          {isLoggedIn ? (
+            <Route path="/list" element={<List_table />} />
+          ) : (
+            <Route />
+          )}
           <Route path="/login" element={<Login />} />
         </Routes>
       </main>
     </div>
   );
-}
+};
 
 export default App;

@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import "./Login.css";
+import db from "../firebase";
 import {
-  getFirestore,
   collection,
   query,
   where,
+  getFirestore,
   getDocs,
 } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
-import "./Login.css";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -21,12 +22,22 @@ function Login() {
       return;
     }
 
-    const auth = getAuth();
-    const firestore = getFirestore();
+    const auth = getAuth(db);
 
     signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        navigate("/main");
+      .then(async () => {
+        const firestore = getFirestore(db);
+        const listRef = collection(firestore, "Users");
+        const q = query(listRef, where("adminvalue", "==", 0));
+        const data = await getDocs(q);
+        const newData = data.docs.map((doc) => ({ ...doc.data() }));
+
+        /* console.log(newData[0].email); */
+        if (newData[0].email === email) {
+          navigate("/main");
+        } else {
+          window.alert("로그인 오류", "해당 권한이 없습니다.");
+        }
       })
       .catch((error) => {
         window.alert(
@@ -60,11 +71,6 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
         <label for="floatingPassword">PW</label>
-      </div>
-      <div class="checkbox mb-2">
-        <label>
-          <input type="checkbox" value="remember-me" /> Remember me
-        </label>
       </div>
       <button class="w-50 btn btn-lg btn-primary" onClick={handleLogin}>
         Sign in

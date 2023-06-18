@@ -1,14 +1,7 @@
 import React from "react";
-import { signOut, getAuth } from "firebase/auth";
 import "./Nav.css";
-import db from "../firebase";
 
-const NavBar = () => {
-  const auth = getAuth(db);
-  const logout = async () => {
-    await signOut(auth);
-  };
-
+const noNavBar = () => {
   return (
     <nav class="main_nav">
       <div class="conts">
@@ -19,7 +12,7 @@ const NavBar = () => {
             </a>
           </li>
           <li class="item">
-            <a class="link" href="./end_list">
+            <a class="link" href="./mun">
               <h4> 경매완료내역</h4>
             </a>
           </li>
@@ -35,8 +28,8 @@ const NavBar = () => {
           </li>
           <li class="logout ">
             <div>
-              <a class="link" href="/" onClick={logout}>
-                <h4> 로그아웃</h4>
+              <a class="link" href="/login">
+                <h4> 로그인</h4>
               </a>
             </div>
           </li>
@@ -46,4 +39,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default noNavBar;
