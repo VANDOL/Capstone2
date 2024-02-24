@@ -1,7 +1,8 @@
-# 캡스톤 디자인 
+## 캡스톤 디자인 
 ## 사용자간의 경매어플 관리자 웹
 
-## 앱 깃헙 링크 : https://github.com/PANGYEON/Capstone2
+### 앱 깃헙 링크 : https://github.com/PANGYEON/Capstone2
+
 ### 📖 내용
 
 - 선정 배경
